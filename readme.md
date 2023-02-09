@@ -9,3 +9,6 @@
 ... skicka och ta emot (simultant) med trådar.
 
 
+**Målsättning**
+
+*Mitt program ska kunna uppfylla ovanstående och inget annat planeras i första taget.*
