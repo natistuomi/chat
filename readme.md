@@ -9,6 +9,15 @@
 ... skicka och ta emot (simultant) med trådar.
 
 
-**Målsättning**
+## Målsättning
 
 *Mitt program ska kunna uppfylla ovanstående och inget annat planeras i första taget.*
+
+
+## Loggbok
+
+**9 feb 2023**
+
+Har skapat readme och grundläggande filstruktur. Undersökt material från förra lektionen.
+
+Nästa gång: Lista ut hur i hela friden ett chattprogram hänger ihop.
