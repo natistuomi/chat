@@ -9,8 +9,9 @@ import java.util.Scanner;
 
 public class Model {
     private Socket socket;
-    PrintWriter out;
-    BufferedReader in;
+    private PrintWriter out;
+    private BufferedReader in;
+    private ListenerThread listenerThread;
 
     public Model(String ip, int port) {
         try {
@@ -22,7 +23,7 @@ public class Model {
         System.out.println("Connection ready...");
     }
 
-    private void getStreams() {
+    protected void getStreams() {
         try {
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -30,30 +31,20 @@ public class Model {
             e.printStackTrace();
         }
         System.out.println("Streams ready...");
+        listenerThread = new ListenerThread(in, System.out);
     }
 
-    private void runProtocol() {
+    protected void runProtocol() {
         Scanner tgb = new Scanner(System.in);
-        System.out.println("chatting...");
-        String msg = "";
-        while (!msg.equals("QUIT")) {
-            msg = tgb.nextLine();
-            out.println("CLIENT: " + msg);
+        System.out.println("Chatting...");
+        String msgLine = "";
+        while (!msgLine.equals("QUIT")) {
+            msgLine = "CLIENT: " + tgb.nextLine();
+            out.println(msgLine);
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        Model me = new Model("10.70.45.159", 1234);
-        me.getStreams();
-        ListenerThread l = new ListenerThread(me.in, System.out);
-        Thread listener = new Thread(l);
-        listener.start();
-        me.runProtocol();
-        listener.join();
-        me.shutDown();
-    }
-
-    private void shutDown() {
+    protected void shutDown() {
         try {
             socket.close();
         } catch (IOException e) {
@@ -61,4 +52,19 @@ public class Model {
         }
     }
 
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public PrintWriter getOut() {
+        return out;
+    }
+
+    public BufferedReader getIn() {
+        return in;
+    }
+
+    public ListenerThread getListenerThread() {
+        return listenerThread;
+    }
 }

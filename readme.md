@@ -21,3 +21,10 @@
 Har skapat readme och grundläggande filstruktur. Undersökt material från förra lektionen.
 
 Nästa gång: Lista ut hur i hela friden ett chattprogram hänger ihop.
+
+**10 feb 2023**
+
+Har skapat GUI formulär, arbetat på Client/Model och Client/Control. 
+Jonglerat med koden för att få en början på något som ska likna en MVC-struktur av något slag.
+
+Nästa gång: Jag förstår knappt vad någon av koden ska göra eller kopplas ihop.
