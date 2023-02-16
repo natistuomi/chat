@@ -18,5 +18,11 @@ public class View {
         return pane;
     }
 
+    public JTextArea getChatarea() {
+        return chatarea;
+    }
 
+    public JTextField getInputfield() {
+        return inputfield;
+    }
 }

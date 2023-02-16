@@ -28,3 +28,9 @@ Har skapat GUI formulär, arbetat på Client/Model och Client/Control.
 Jonglerat med koden för att få en början på något som ska likna en MVC-struktur av något slag.
 
 Nästa gång: Jag förstår knappt vad någon av koden ska göra eller kopplas ihop.
+
+**16 feb 2023**
+
+Har kopplat view och controller lite mer på klientsidan. Bättre förståelse för Client-Server dynamiken. 
+
+Nästa gång: Arbeta på modellerna och dess kopplingar.
