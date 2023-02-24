@@ -1,16 +1,18 @@
 package Server;
 
+import Client.ListenerThread;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class Model {
-    ServerSocket server;
-    Socket client;
-
-    PrintWriter out;
-    BufferedReader in;
+    private ServerSocket server;
+    private Socket client;
+    private PrintWriter out;
+    private BufferedReader in;
+    private ListenerThread listenerThread;
 
     public Model(int port) {
         try {
@@ -40,28 +42,18 @@ public class Model {
             e.printStackTrace();
         }
         System.out.println("Streams ready...");
+        listenerThread = new ListenerThread(in, System.out);
     }
 
-    private void runProtocol() {
+    private String runProtocol() {
         Scanner tgb = new Scanner(System.in);
         System.out.println("chatting...");
         String msg = "";
         while (!msg.equals("QUIT")) {
-            msg = tgb.nextLine();
-            out.println("SERVER: " + msg);
+            msg = "SERVER: " + tgb.nextLine();
+            return msg;
         }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        Model s = new Model(1234);
-        s.acceptClient();
-        s.getStreams();
-        ListenerThread l = new ListenerThread(s.in, System.out);
-        Thread listener = new Thread(l);
-        listener.start();
-        s.runProtocol();
-        listener.join();
-        s.shutdown();
+        return "SERVER quit...";
     }
 
     private void shutdown() {

@@ -34,3 +34,9 @@ Nästa gång: Jag förstår knappt vad någon av koden ska göra eller kopplas i
 Har kopplat view och controller lite mer på klientsidan. Bättre förståelse för Client-Server dynamiken. 
 
 Nästa gång: Arbeta på modellerna och dess kopplingar.
+
+**24 feb 2023**
+
+Har arbetat på samtliga delar och påbörjat controllers för både server och client.
+
+Nästa gång: Hur löser jag variabelberopning från static i control main?

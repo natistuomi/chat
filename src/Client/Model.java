@@ -23,6 +23,8 @@ public class Model {
         System.out.println("Connection ready...");
     }
 
+
+
     protected void getStreams() {
         try {
             out = new PrintWriter(socket.getOutputStream(), true);
@@ -34,14 +36,15 @@ public class Model {
         listenerThread = new ListenerThread(in, System.out);
     }
 
-    protected void runProtocol() {
+    protected String runProtocol() {
         Scanner tgb = new Scanner(System.in);
         System.out.println("Chatting...");
-        String msgLine = "";
-        while (!msgLine.equals("QUIT")) {
-            msgLine = "CLIENT: " + tgb.nextLine();
-            out.println(msgLine);
+        String msg = "";
+        while (!msg.equals("QUIT")) {
+            msg = "CLIENT: " + tgb.nextLine();
+            return msg;
         }
+        return "CLIENT quit...";
     }
 
     protected void shutDown() {

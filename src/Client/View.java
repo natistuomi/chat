@@ -14,15 +14,11 @@ public class View {
         return button;
     }
 
-    public JPanel getPane() {
-        return pane;
-    }
+    public JPanel getPane(){return pane;}
 
-    public JTextArea getChatarea() {
-        return chatarea;
-    }
+    public JTextArea getChatarea(){return chatarea;}
 
-    public JTextField getInputfield() {
-        return inputfield;
-    }
+    public JTextField getInputfield(){return inputfield;}
+
+    public void setChatarea(JTextArea chatarea){this.chatarea = chatarea;}
 }
