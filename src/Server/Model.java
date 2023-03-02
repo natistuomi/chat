@@ -24,7 +24,7 @@ public class Model {
         System.out.println("Server started...");
     }
 
-    private void acceptClient() {
+    public void acceptClient() {
         try {
             client = server.accept();
         } catch (IOException e) {
@@ -34,7 +34,7 @@ public class Model {
         System.out.println("client connected...");
     }
 
-    private void getStreams() {
+    public void getStreams() {
         try {
             out = new PrintWriter(client.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(client.getInputStream()));
@@ -45,7 +45,7 @@ public class Model {
         listenerThread = new ListenerThread(in, System.out);
     }
 
-    private String runProtocol() {
+    public String runProtocol() {
         Scanner tgb = new Scanner(System.in);
         System.out.println("chatting...");
         String msg = "";
@@ -56,11 +56,15 @@ public class Model {
         return "SERVER quit...";
     }
 
-    private void shutdown() {
+    public void shutdown() {
         try {
             client.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public ListenerThread getListenerThread() {
+        return listenerThread;
     }
 }

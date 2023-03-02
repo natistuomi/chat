@@ -24,28 +24,17 @@ public class Control {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
-        model.getStreams();
-        /*Client me = new Client("10.70.45.159", 1234);
-        me.getStreams();
-        Thread listener = new Thread(model.getListenerThread());
-        listener.start();
-        me.runProtocol();
-        listener.join();
-        me.shutDown();*/
-
-
     }
 
     public static void main(String[] args) {
         Model m = new Model("10.70.45.159", 1234);
         View v = new View();
         Control c =  new Control(m,v);
-        model.getStreams();
-        Thread listener = new Thread(model.getListenerThread());
+        m.getStreams();
+        Thread listener = new Thread(m.getListenerThread());
         listener.start();
-        model.runProtocol();
+        m.runProtocol();
 
-        model.shutDown();
+        m.shutDown();
     }
 }

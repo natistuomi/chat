@@ -40,3 +40,9 @@ Nästa gång: Arbeta på modellerna och dess kopplingar.
 Har arbetat på samtliga delar och påbörjat controllers för både server och client.
 
 Nästa gång: Hur löser jag variabelberopning från static i control main?
+
+**2 mars 2023**
+
+Löste problemet från förra veckan.
+
+Nästa gång: Hur connectar man view-fälten till controllern?
