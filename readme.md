@@ -46,3 +46,9 @@ Nästa gång: Hur löser jag variabelberopning från static i control main?
 Löste problemet från förra veckan.
 
 Nästa gång: Hur connectar man view-fälten till controllern?
+
+**3 mars 2023**
+
+Arbetat på kopplingen mellan view och controller.
+
+Problem: Hur får man text in ett textfält genom controllern?

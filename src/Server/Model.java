@@ -45,12 +45,9 @@ public class Model {
         listenerThread = new ListenerThread(in, System.out);
     }
 
-    public String runProtocol() {
-        Scanner tgb = new Scanner(System.in);
-        System.out.println("chatting...");
-        String msg = "";
+    public String makeMsg(String msg) {
         while (!msg.equals("QUIT")) {
-            msg = "SERVER: " + tgb.nextLine();
+            msg = "SERVER: " + msg;
             return msg;
         }
         return "SERVER quit...";

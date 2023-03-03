@@ -15,7 +15,7 @@ public class Control {
         view.getButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*Fyll i senare. Vad gör knappen?*/
+                /*Fyll i senare*/
             }
         });
 
@@ -26,17 +26,22 @@ public class Control {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         Model m = new Model(1234);
         View v = new View();
         Control c = new Control(m,v);
-        m.acceptClient();
-        m.getStreams();
-        Thread listener = new Thread(m.getListenerThread());
+        c.model.acceptClient();
+        c.model.getStreams();
+        Thread listener = new Thread(c.model.getListenerThread());
         listener.start();
-        m.runProtocol();
+        runProtocol(c);
 
-        m.shutdown();
+        c.model.shutdown();
     }
 
+    public void runProtocol(Control c){
+        String msg = String.valueOf(view.getInputfield());
+        msg = c.model.makeMsg(msg);
+        /* Send message to view? */
+    }
 }
